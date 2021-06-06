@@ -79,14 +79,14 @@ from .forms import CHOICES
 chose=dict(CHOICES).get(form.chose.data)
 if chose=='вертикали':
  size=30
-  height = 224
-  width = 224
-  img= np.array(img.resize((height,width)))/255.0
-  print(size)
-  img[:size,:,1] = 0
-  img[:,0:size,1] = 0
-  img[:,224-size:,1] = 0
-  img[224-size:,:,1] = 0
+ height = 224
+ width = 224
+ img= np.array(img.resize((height,width)))/255.0
+ print(size)
+ img[:size,:,1] = 0
+ img[:,0:size,1] = 0
+ img[:,224-size:,1] = 0
+ img[224-size:,:,1] = 0
 ##сохраняем новое изображение
  img = Image.fromarray((img * 255).astype(np.uint8))
  print(img)
