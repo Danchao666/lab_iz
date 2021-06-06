@@ -82,14 +82,6 @@ def draw(filename,cho):
   img.paste(a, (int(x * 0.5), 0))
   output_filename = filename
   img.save(output_filename)
- 
-##сохраняем новое изображение
-  #img = Image.fromarray((img * 255).astype(np.uint8))
-  #print(img)
-  #img = Image.fromarray(img)
-  #new_path = "./static/new.png"
-  #print(img)
-  #img.save(new_path)
  else:
   img=img.rotate(90)
   a = img.crop((0, 0, int(y * 0.5), x))
@@ -99,15 +91,7 @@ def draw(filename,cho):
   img=img.rotate(270)
   output_filename = filename
   img.save(output_filename)
-  #img.save(output_file_name)
-##сохраняем новое изображение
- # img = Image.fromarray((img * 255).astype(np.uint8))
-  #print(img)
-  #img = Image.fromarray(img)
-  #new_path = "./static/new.png"
-  #print(img)
-  #img.save(new_path)
- return output_filename
+ return output_filename,gr_path
 
 
 
@@ -119,6 +103,7 @@ def net():
  # обнуляем переменные передаваемые в форму
  filename=None
  newfilename=None
+ grname=None
  # проверяем нажатие сабмит и валидацию введенных данных
  if form.validate_on_submit():
   # файлы с изображениями читаются из каталога static
@@ -126,11 +111,11 @@ def net():
   ch=form.cho.data
  
   form.upload.data.save(filename)
-  newfilename = draw(filename,ch)
+  newfilename,grname = draw(filename,ch)
  # передаем форму в шаблон, так же передаем имя файла и результат работы нейронной
  # сети если был нажат сабмит, либо передадим falsy значения
  
- return render_template('net.html',form=form,image_name=newfilename)
+ return render_template('net.html',form=form,image_name=newfilename,gr_name=grname)
 
 
 if __name__ == "__main__":
