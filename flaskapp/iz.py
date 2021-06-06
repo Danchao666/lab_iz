@@ -94,7 +94,7 @@ if chose==1:
  new_path = "./static/new.png"
  print(img)
  img.save(new_path)
- return new_path, gr_path
+return new_path, gr_path
 
 # метод обработки запроса GET и POST от клиента
 @app.route("/net",methods=['GET', 'POST'])
