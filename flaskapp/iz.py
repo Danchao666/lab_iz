@@ -75,7 +75,7 @@ def draw(filename,size):
 
 
 ##рисуем рамки
-chose=CHOSE
+chose=form.CHOSE.data
 if chose=='вертикали':
  size=30
   height = 224
