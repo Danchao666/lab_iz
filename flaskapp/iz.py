@@ -32,7 +32,7 @@ class NetForm(FlaskForm):
  # валидатор проверяет введение данных после нажатия кнопки submit
  # и указывает пользователю ввести данные если они не введены
  # или неверны
- size = StringField('size', validators = [DataRequired()])
+ cho = StringField('1-изменить по горизонтали,2-по вертикали', validators = [DataRequired()])
  # поле загрузки файла
  # здесь валидатор укажет ввести правильные файлы
  upload = FileField('Load image', validators=[
@@ -54,7 +54,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 ## функция для оброботки изображения 
-def draw(filename,size):
+def draw(filename,cho):
  ##открываем изображение 
  print(filename)
  img= Image.open(filename)
@@ -74,15 +74,17 @@ def draw(filename,size):
 
 
 ##рисуем рамки
- size=int(size)
- height = 224
- width = 224
- img= np.array(img.resize((height,width)))/255.0
- print(size)
- img[:size,:,1] = 0
- img[:,0:size,1] = 0
- img[:,224-size:,1] = 0
- img[224-size:,:,1] = 0
+ size=30
+ cho=int(size)
+ if cho=1: 
+  height = 224
+  width = 224
+  img= np.array(img.resize((height,width)))/255.0
+  print(size)
+  img[:size,:,1] = 0
+  img[:,0:size,1] = 0
+  img[:,224-size:,1] = 0
+  img[224-size:,:,1] = 0
 ##сохраняем новое изображение
  img = Image.fromarray((img * 255).astype(np.uint8))
  print(img)
