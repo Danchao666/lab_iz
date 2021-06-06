@@ -96,7 +96,6 @@ def draw(filename,cho):
   b = img.crop((int(y * 0.5), 0, x, y))
   img.paste(b, (0, 0))
   img.paste(a, (int(y * 0.5), 0))
-  img.rotate(270)
   output_filename = filename
   img.save(output_filename)
   #img.save(output_file_name)
