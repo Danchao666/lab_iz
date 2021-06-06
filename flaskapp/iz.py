@@ -84,7 +84,7 @@ def draw(filename,cho):
     rr, gg, bb = pixels[xx + i, j]
     pixels[i, j] = rr, gg, bb
     pixels[xx + i, j] = r, g, b
-    im.save(output_file_name)
+    img.save(output_file_name)
 ##сохраняем новое изображение
   #img = Image.fromarray((img * 255).astype(np.uint8))
   #print(img)
@@ -99,7 +99,7 @@ def draw(filename,cho):
     rr, gg, bb = pixels[xx + i, j]
     pixels[i, j] = rr, gg, bb
     pixels[xx + i, j] = r, g, b
-    im.save(output_file_name)
+    img.save(output_file_name)
   #img.save(output_file_name)
 ##сохраняем новое изображение
  # img = Image.fromarray((img * 255).astype(np.uint8))
