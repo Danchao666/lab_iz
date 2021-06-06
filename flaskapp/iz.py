@@ -92,9 +92,21 @@ def draw(filename,cho):
   new_path = "./static/new.png"
   print(img)
   img.save(new_path)
-  return new_path, gr_path
- else
-  return 0
+ else:
+  img= np.array(img.resize((height,width)))/255.0
+  print(size)
+  img[:size,:,1] = 0
+  img[:,0:size,1] = 0
+  img[:,224-size:,1] = 0
+  img[224-size:,:,1] = 0
+##сохраняем новое изображение
+  img = Image.fromarray((img * 255).astype(np.uint8))
+  print(img)
+  #img = Image.fromarray(img)
+  new_path = "./static/new.png"
+  print(img)
+  img.save(new_path)
+ return new_path, gr_path
 
 
 # метод обработки запроса GET и POST от клиента
