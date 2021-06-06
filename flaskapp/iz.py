@@ -77,8 +77,8 @@ def draw(filename,cho):
 
 ##рисуем рамки
  if cho==1: 
-  a = im.crop((0, 0, int(y * 0.5), x))
-  b = im.crop((int(y * 0.5), 0, x, y))
+  a = img.crop((0, 0, int(y * 0.5), x))
+  b = img.crop((int(y * 0.5), 0, x, y))
   img.paste(b, (0, 0))
   img.paste(a, (int(x * 0.5), 0))
   img.save(output_file_name)
@@ -91,8 +91,8 @@ def draw(filename,cho):
   #print(img)
   #img.save(new_path)
  else:
-  a = im.crop((0, 0, int(y * 0.5), x))
-  b = im.crop((int(y * 0.5), 0, x, y))
+  a = img.crop((0, 0, int(y * 0.5), x))
+  b = img.crop((int(y * 0.5), 0, x, y))
   img.paste(b, (0, 0))
   img.paste(a, (int(x * 0.5), 0))
   img.save(output_file_name)
