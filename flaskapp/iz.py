@@ -59,6 +59,7 @@ def draw(filename,cho):
  print(filename)
  img= Image.open(filename)
  x, y = img.size
+ cho=int(cho)
  
 ##делаем график
  fig = plt.figure(figsize=(6, 4))
