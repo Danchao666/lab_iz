@@ -115,7 +115,7 @@ def net():
  # обнуляем переменные передаваемые в форму
  filename=None
  newfilename=None
- #rname=None
+ grname=None
  # проверяем нажатие сабмит и валидацию введенных данных
  if form.validate_on_submit():
   # файлы с изображениями читаются из каталога static
