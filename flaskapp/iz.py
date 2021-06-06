@@ -27,17 +27,12 @@ app.config['RECAPTCHA_OPTIONS'] = {'theme': 'white'}
 from flask_bootstrap import Bootstrap
 bootstrap = Bootstrap(app)
 # создаем форму для загрузки файла
-class NetForm(FlaskForm):
+class Chose(FlaskForm):
  # поле для введения строки, валидируется наличием данных
  # валидатор проверяет введение данных после нажатия кнопки submit
  # и указывает пользователю ввести данные если они не введены
  # или неверны
- if request.form.get("opcao3"):
-    gor = True
-    ver = False
- if request.form.get("opcao3"):
-    ver = True
-    gor = False   
+ chose = SelectField("Изменить картинку по",choices =["горизонтали","вертикали"]) 
  # поле загрузки файла
  # здесь валидатор укажет ввести правильные файлы
  upload = FileField('Load image', validators=[
