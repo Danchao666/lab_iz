@@ -32,7 +32,12 @@ class NetForm(FlaskForm):
  # валидатор проверяет введение данных после нажатия кнопки submit
  # и указывает пользователю ввести данные если они не введены
  # или неверны
- flag = request.form.getlist('flag')
+ if request.form.get("opcao3"):
+    gor = True
+    ver = False
+ if request.form.get("opcao3"):
+    ver = True
+    gor = False   
  # поле загрузки файла
  # здесь валидатор укажет ввести правильные файлы
  upload = FileField('Load image', validators=[
