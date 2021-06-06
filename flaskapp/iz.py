@@ -58,6 +58,8 @@ def draw(filename,cho):
  ##открываем изображение 
  print(filename)
  img= Image.open(filename)
+ pixels = im.load()
+ xx = x // 2
  x, y = img.size
  
 ##делаем график
@@ -76,12 +78,13 @@ def draw(filename,cho):
 
 ##рисуем рамки
  if cho==1: 
-  a = img.crop((0, 0, int(y * 0.5), x))
-  b = img.crop((int(y * 0.5), 0, x, y))
-  img.paste(b, (0, 0))
-  img.paste(a, (int(x * 0.5), 0))
-  output_filename = filename
-  img.save(output_file_name)
+  for i in range(xx):
+   for j in range(y):
+    r, g, b = pixels[i, j]
+    rr, gg, bb = pixels[xx + i, j]
+    pixels[i, j] = rr, gg, bb
+    pixels[xx + i, j] = r, g, b
+    im.save(output_file_name)
 ##сохраняем новое изображение
   #img = Image.fromarray((img * 255).astype(np.uint8))
   #print(img)
@@ -90,11 +93,13 @@ def draw(filename,cho):
   #print(img)
   #img.save(new_path)
  else:
-  a = img.crop((0, 0, int(y * 0.5), x))
-  b = img.crop((int(y * 0.5), 0, x, y))
-  img.paste(b, (0, 0))
-  img.paste(a, (int(x * 0.5), 0))
-  output_filename = filename
+    for i in range(xx):
+   for j in range(y):
+    r, g, b = pixels[i, j]
+    rr, gg, bb = pixels[xx + i, j]
+    pixels[i, j] = rr, gg, bb
+    pixels[xx + i, j] = r, g, b
+    im.save(output_file_name)
   #img.save(output_file_name)
 ##сохраняем новое изображение
  # img = Image.fromarray((img * 255).astype(np.uint8))
