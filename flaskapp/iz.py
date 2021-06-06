@@ -86,13 +86,13 @@ def draw(filename,cho):
   img[:,224-size:,1] = 0
   img[224-size:,:,1] = 0
 ##сохраняем новое изображение
- img = Image.fromarray((img * 255).astype(np.uint8))
- print(img)
- #img = Image.fromarray(img)
- new_path = "./static/new.png"
- print(img)
- img.save(new_path)
- return new_path, gr_path
+  img = Image.fromarray((img * 255).astype(np.uint8))
+  print(img)
+  #img = Image.fromarray(img)
+  new_path = "./static/new.png"
+  print(img)
+  img.save(new_path)
+  return new_path, gr_path
 
 
 # метод обработки запроса GET и POST от клиента
