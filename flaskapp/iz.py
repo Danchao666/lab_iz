@@ -20,8 +20,8 @@ SECRET_KEY = 'secret'
 app.config['SECRET_KEY'] = SECRET_KEY
 # используем капчу и полученные секретные ключи с сайта google 
 app.config['RECAPTCHA_USE_SSL'] = False
-app.config['RECAPTCHA_PUBLIC_KEY'] = '6LfxtBcbAAAAAJgi6cgsr8wgJmBWpcCoCTv1pJ_e'
-app.config['RECAPTCHA_PRIVATE_KEY'] = '6LfxtBcbAAAAANpv6l0gYsG_CkivIPRUq2_wXV5V'
+app.config['RECAPTCHA_PUBLIC_KEY'] = '6LfYYBYbAAAAADJHJ8wKO4fzgq7uks6wuNL-sSnK'
+app.config['RECAPTCHA_PRIVATE_KEY'] = '6LfYYBYbAAAAALpp5LL3quMnXKXHAo2KdfQAm8-V'
 app.config['RECAPTCHA_OPTIONS'] = {'theme': 'white'}
 # обязательно добавить для работы со стандартными шаблонами
 from flask_bootstrap import Bootstrap
@@ -32,8 +32,7 @@ class NetForm(FlaskForm):
  # валидатор проверяет введение данных после нажатия кнопки submit
  # и указывает пользователю ввести данные если они не введены
  # или неверны
- CHOICES = [('1','1'),('2','2')]
- chose = SelectField("Изменить картинку по",choices =CHOICES) 
+ chose = StringField('1-изменить по горизонтали,2-по вертикали', validators = [DataRequired()])
  # поле загрузки файла
  # здесь валидатор укажет ввести правильные файлы
  upload = FileField('Load image', validators=[
@@ -75,8 +74,8 @@ def draw(filename,size):
 
 
 ##рисуем рамки
-from .forms import CHOICES
-chose=int(chose)#dict(CHOICES).get(form.chose.data)
+#from .forms import CHOICES
+chose=int(cho)
 if chose==1:
  size=30
  height = 224
