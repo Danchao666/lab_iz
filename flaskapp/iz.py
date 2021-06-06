@@ -91,13 +91,13 @@ def draw(filename,cho):
   #print(img)
   #img.save(new_path)
  else:
-  img.rotate(90)
-  a = img.crop((0, 0, int(y * 0.5), x))
-  b = img.crop((int(y * 0.5), 0, x, y))
-  img.paste(b, (0, 0))
-  img.paste(a, (int(y * 0.5), 0))
+  img2=img.rotate(90)
+  a = img2.crop((0, 0, int(y * 0.5), x))
+  b = img2.crop((int(y * 0.5), 0, x, y))
+  img2.paste(b, (0, 0))
+  img2.paste(a, (int(y * 0.5), 0))
   output_filename = filename
-  img.save(output_filename)
+  img2.save(output_filename)
   #img.save(output_file_name)
 ##сохраняем новое изображение
  # img = Image.fromarray((img * 255).astype(np.uint8))
