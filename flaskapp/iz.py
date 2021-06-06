@@ -91,10 +91,12 @@ def draw(filename,cho):
   #print(img)
   #img.save(new_path)
  else:
+  img.rotate(90)
   a = img.crop((0, 0, int(x * 0.5), y))
   b = img.crop((int(x * 0.5), 0, y, x))
   img.paste(b, (0, 0))
   img.paste(a, (int(y * 0.5), 0))
+  img.rotate(270)
   output_filename = filename
   img.save(output_filename)
   #img.save(output_file_name)
