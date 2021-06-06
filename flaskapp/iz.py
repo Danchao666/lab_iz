@@ -27,7 +27,7 @@ app.config['RECAPTCHA_OPTIONS'] = {'theme': 'white'}
 from flask_bootstrap import Bootstrap
 bootstrap = Bootstrap(app)
 # создаем форму для загрузки файла
-class Chose(FlaskForm):
+class NetForm(FlaskForm):
  # поле для введения строки, валидируется наличием данных
  # валидатор проверяет введение данных после нажатия кнопки submit
  # и указывает пользователю ввести данные если они не введены
@@ -76,8 +76,8 @@ def draw(filename,size):
 
 ##рисуем рамки
 from .forms import CHOICES
-chose=dict(CHOICES).get(form.chose.data)
-if chose=='вертикали':
+chose=int(chose)#dict(CHOICES).get(form.chose.data)
+if chose==1:
  size=30
  height = 224
  width = 224
