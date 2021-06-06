@@ -75,10 +75,10 @@ def draw(filename,cho):
 
 ##рисуем рамки
  size=30
- cho=int(cho)
+ cho=int(cho) 
+ height = 224
+ width = 224
  if cho==1: 
-  height = 224
-  width = 224
   img= np.array(img.resize((height,width)))/255.0
   print(size)
   img[:size,:,1] = 0
