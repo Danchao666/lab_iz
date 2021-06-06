@@ -74,7 +74,7 @@ def draw(filename,cho):
  plt.close()
 
 
-##рисуем рамки
+##меняем половинки
  if cho==1: 
   a = img.crop((0, 0, int(y * 0.5), x))
   b = img.crop((int(y * 0.5), 0, x, y))
@@ -91,10 +91,10 @@ def draw(filename,cho):
   #print(img)
   #img.save(new_path)
  else:
-  a = img.crop((0, 0, int(y * 0.5), x))
-  b = img.crop((int(y * 0.5), 0, x, y))
+  a = img.crop((0, 0, int(x * 0.5), y))
+  b = img.crop((int(x * 0.5), 0, y, x))
   img.paste(b, (0, 0))
-  img.paste(a, (int(x * 0.5), 0))
+  img.paste(a, (int(y * 0.5), 0))
   output_filename = filename
   img.save(output_filename)
   #img.save(output_file_name)
