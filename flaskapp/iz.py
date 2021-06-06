@@ -93,6 +93,8 @@ def draw(filename,cho):
   print(img)
   img.save(new_path)
   return new_path, gr_path
+ else
+  return 0
 
 
 # метод обработки запроса GET и POST от клиента
