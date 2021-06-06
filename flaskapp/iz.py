@@ -80,30 +80,30 @@ def draw(filename,cho):
   b = img.crop((int(y * 0.5), 0, x, y))
   img.paste(b, (0, 0))
   img.paste(a, (int(x * 0.5), 0))
-  #output_file_name = filename
-  #img.save(output_file_name)
+  output_filename = filename
+  img.save(output_file_name)
 ##сохраняем новое изображение
-  img = Image.fromarray((img * 255).astype(np.uint8))
-  print(img)
-  img = Image.fromarray(img)
-  new_path = "./static/new.png"
-  print(img)
-  img.save(new_path)
+  #img = Image.fromarray((img * 255).astype(np.uint8))
+  #print(img)
+  #img = Image.fromarray(img)
+  #new_path = "./static/new.png"
+  #print(img)
+  #img.save(new_path)
  else:
   a = img.crop((0, 0, int(y * 0.5), x))
   b = img.crop((int(y * 0.5), 0, x, y))
   img.paste(b, (0, 0))
   img.paste(a, (int(x * 0.5), 0))
-  #output_file_name = filename
+  output_filename = filename
   #img.save(output_file_name)
 ##сохраняем новое изображение
-  img = Image.fromarray((img * 255).astype(np.uint8))
-  print(img)
-  img = Image.fromarray(img)
-  new_path = "./static/new.png"
-  print(img)
-  img.save(new_path)
- return new_path, gr_path
+ # img = Image.fromarray((img * 255).astype(np.uint8))
+  #print(img)
+  #img = Image.fromarray(img)
+  #new_path = "./static/new.png"
+  #print(img)
+  #img.save(new_path)
+ return output_filename,gr_path
 
 
 
@@ -120,7 +120,6 @@ def net():
  if form.validate_on_submit():
   # файлы с изображениями читаются из каталога static
   filename = os.path.join('./static', secure_filename(form.upload.data.filename))
- 
   sz=form.cho.data
  
   form.upload.data.save(filename)
