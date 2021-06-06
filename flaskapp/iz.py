@@ -4,7 +4,7 @@ app = Flask(__name__)
 #декоратор для вывода страницы по умолчанию
 @app.route("/")
 def hello():
- return " <html><head></head> <body> Hello World! </body></html>"
+ return " <html><head></head> <body> Im son of Odin </body></html>"
 
 from flask import render_template
 #наша новая функция сайта
