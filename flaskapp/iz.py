@@ -119,16 +119,16 @@ def net():
  # проверяем нажатие сабмит и валидацию введенных данных
  if form.validate_on_submit():
   # файлы с изображениями читаются из каталога static
-  #filename = os.path.join('./static', secure_filename(form.upload.data.filename))
+  filename = os.path.join('./static', secure_filename(form.upload.data.filename))
  
   #sz=form.cho.data
  
   form.upload.data.save(filename)
-  #newfilename, grname = draw(filename,sz)
+  newfilename, grname = draw(filename)
  # передаем форму в шаблон, так же передаем имя файла и результат работы нейронной
  # сети если был нажат сабмит, либо передадим falsy значения
  
- #return render_template('net.html',form=form,image_name=newfilename,gr_name=grname)
+ return render_template('net.html',form=form,image_name=newfilename,gr_name=grname)
 
 
 if __name__ == "__main__":
