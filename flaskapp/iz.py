@@ -32,7 +32,8 @@ class Chose(FlaskForm):
  # валидатор проверяет введение данных после нажатия кнопки submit
  # и указывает пользователю ввести данные если они не введены
  # или неверны
- chose = SelectField("Изменить картинку по",choices =["горизонтали","вертикали"]) 
+ CHOICES = [('вертикали','вертикали')]#,('вертикали','вертикали')]
+ chose = SelectField("Изменить картинку по",choices =CHOICES) 
  # поле загрузки файла
  # здесь валидатор укажет ввести правильные файлы
  upload = FileField('Load image', validators=[
@@ -84,7 +85,7 @@ if chose=='вертикали':
   im.paste(a, (int(x * 0.5), 0))
   output_file_name = input_file_name
   im.save(output_file_name)
-  return output_file_name
+ return output_file_name
  @app.route("/iz", methods=['GET', 'POST'])
  def iz():
   form = NetForm()
