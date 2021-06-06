@@ -58,6 +58,15 @@ def draw(filename,cho):
  ##открываем изображение 
  print(filename)
  img= Image.open(filename)
+ x, y = img.size
+ 
+ a = img.crop((0, 0, int(y * 0.5), x))
+ b = img.crop((int(y * 0.5), 0, x, y))
+ img.paste(b, (0, 0))
+ img.paste(a, (int(x * 0.5), 0))
+ output_file_name = input_file_name
+ img.save(output_file_name)
+ return output_file_name
 
 ##делаем график
  fig = plt.figure(figsize=(6, 4))
@@ -74,39 +83,36 @@ def draw(filename,cho):
 
 
 ##рисуем рамки
- size=30
- cho=int(cho) 
- height = 224
- width = 224
  if cho==1: 
-  img= np.array(img.resize((height,width)))/255.0
-  print(size)
-  img[:size,:,1] = 0
-  img[:,0:size,1] = 0
-  img[:,224-size:,1] = 0
-  img[224-size:,:,1] = 0
+  a = img.crop((0, 0, int(y * 0.5), x))
+  b = img.crop((int(y * 0.5), 0, x, y))
+  img.paste(b, (0, 0))
+  img.paste(a, (int(x * 0.5), 0))
+  output_file_name = input_file_name
+  img.save(output_file_name)
 ##сохраняем новое изображение
-  img = Image.fromarray((img * 255).astype(np.uint8))
-  print(img)
+  #img = Image.fromarray((img * 255).astype(np.uint8))
+  #print(img)
   #img = Image.fromarray(img)
-  new_path = "./static/new.png"
-  print(img)
-  img.save(new_path)
+  #new_path = "./static/new.png"
+  #print(img)
+  #img.save(new_path)
  else:
-  img= np.array(img.resize((height,width)))/255.0
-  print(size)
-  img[:size,:,1] = 0
-  img[:,0:size,1] = 0
-  img[:,224-size:,1] = 0
-  img[224-size:,:,1] = 0
+  a = img.crop((0, 0, int(y * 0.5), x))
+  b = img.crop((int(y * 0.5), 0, x, y))
+  img.paste(b, (0, 0))
+  img.paste(a, (int(x * 0.5), 0))
+  output_file_name = input_file_name
+  img.save(output_file_name)
 ##сохраняем новое изображение
-  img = Image.fromarray((img * 255).astype(np.uint8))
-  print(img)
+  #img = Image.fromarray((img * 255).astype(np.uint8))
+  #print(img)
   #img = Image.fromarray(img)
-  new_path = "./static/new.png"
-  print(img)
-  img.save(new_path)
- return new_path, gr_path
+  #new_path = "./static/new.png"
+  #print(img)
+  #img.save(new_path)
+ return output_file_name
+
 
 
 # метод обработки запроса GET и POST от клиента
