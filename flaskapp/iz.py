@@ -76,7 +76,7 @@ def draw(filename,size):
 
 ##рисуем рамки
 if chose=='вертикали':
- size=int(size)
+ size=30
   height = 224
   width = 224
   img= np.array(img.resize((height,width)))/255.0
