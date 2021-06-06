@@ -60,14 +60,6 @@ def draw(filename,cho):
  img= Image.open(filename)
  x, y = img.size
  
- a = img.crop((0, 0, int(y * 0.5), x))
- b = img.crop((int(y * 0.5), 0, x, y))
- img.paste(b, (0, 0))
- img.paste(a, (int(x * 0.5), 0))
- output_file_name = input_file_name
- img.save(output_file_name)
- return output_file_name
-
 ##делаем график
  fig = plt.figure(figsize=(6, 4))
  ax = fig.add_subplot()
@@ -88,7 +80,7 @@ def draw(filename,cho):
   b = img.crop((int(y * 0.5), 0, x, y))
   img.paste(b, (0, 0))
   img.paste(a, (int(x * 0.5), 0))
-  output_file_name = input_file_name
+  output_file_name = filename
   img.save(output_file_name)
 ##сохраняем новое изображение
   #img = Image.fromarray((img * 255).astype(np.uint8))
@@ -102,7 +94,7 @@ def draw(filename,cho):
   b = img.crop((int(y * 0.5), 0, x, y))
   img.paste(b, (0, 0))
   img.paste(a, (int(x * 0.5), 0))
-  output_file_name = input_file_name
+  output_file_name = filename
   img.save(output_file_name)
 ##сохраняем новое изображение
   #img = Image.fromarray((img * 255).astype(np.uint8))
