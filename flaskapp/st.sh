@@ -3,4 +3,4 @@ sleep 5
 echo $APP_PID
 kill -TERM $APP_PID
 echo process gunicorns kills
-exit 0
+exit -TERM $APP_PID
