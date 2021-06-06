@@ -123,7 +123,7 @@ def net():
   # файлы с изображениями читаются из каталога static
   filename = os.path.join('./static', secure_filename(form.upload.data.filename))
  
-  sz=form.size.data
+  sz=form.cho.data
  
   form.upload.data.save(filename)
   newfilename, grname = draw(filename,sz)
