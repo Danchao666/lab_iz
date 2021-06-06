@@ -108,22 +108,22 @@ def draw(filename,cho):
 
 
 # метод обработки запроса GET и POST от клиента
-#@app.route("/net",methods=['GET', 'POST'])
-#def net():
+@app.route("/net",methods=['GET', 'POST'])
+def net():
  # создаем объект формы
- #form = NetForm()
+ form = NetForm()
  # обнуляем переменные передаваемые в форму
- #filename=None
- #newfilename=None
- #grname=None
+ filename=None
+ newfilename=None
+ #rname=None
  # проверяем нажатие сабмит и валидацию введенных данных
- #if form.validate_on_submit():
+ if form.validate_on_submit():
   # файлы с изображениями читаются из каталога static
   #filename = os.path.join('./static', secure_filename(form.upload.data.filename))
  
   #sz=form.cho.data
  
-  #form.upload.data.save(filename)
+  form.upload.data.save(filename)
   #newfilename, grname = draw(filename,sz)
  # передаем форму в шаблон, так же передаем имя файла и результат работы нейронной
  # сети если был нажат сабмит, либо передадим falsy значения
