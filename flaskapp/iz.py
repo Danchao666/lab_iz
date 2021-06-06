@@ -80,7 +80,7 @@ def draw(filename,cho):
   b = img.crop((int(y * 0.5), 0, x, y))
   img.paste(b, (0, 0))
   img.paste(a, (int(x * 0.5), 0))
-  output_filename = img
+  output_filename = filename
   img.save(output_filename)
  
 ##сохраняем новое изображение
@@ -95,7 +95,7 @@ def draw(filename,cho):
   b = img.crop((int(y * 0.5), 0, x, y))
   img.paste(b, (0, 0))
   img.paste(a, (int(x * 0.5), 0))
-  output_filename = img
+  output_filename = filename
   img.save(output_filename)
   #img.save(output_file_name)
 ##сохраняем новое изображение
@@ -105,7 +105,7 @@ def draw(filename,cho):
   #new_path = "./static/new.png"
   #print(img)
   #img.save(new_path)
- return output_filename,gr_path
+ return output_filename
 
 
 
@@ -117,7 +117,6 @@ def net():
  # обнуляем переменные передаваемые в форму
  filename=None
  newfilename=None
- grname=None
  # проверяем нажатие сабмит и валидацию введенных данных
  if form.validate_on_submit():
   # файлы с изображениями читаются из каталога static
@@ -125,11 +124,11 @@ def net():
   ch=form.cho.data
  
   form.upload.data.save(filename)
-  newfilename, grname = draw(filename,ch)
+  newfilename = draw(filename,ch)
  # передаем форму в шаблон, так же передаем имя файла и результат работы нейронной
  # сети если был нажат сабмит, либо передадим falsy значения
  
- return render_template('net.html',form=form,image_name=newfilename,gr_name=grname)
+ return render_template('net.html',form=form,image_name=newfilename)
 
 
 if __name__ == "__main__":
