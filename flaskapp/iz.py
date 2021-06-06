@@ -81,7 +81,7 @@ def draw(filename,cho):
   b = img.crop((int(y * 0.5), 0, x, y))
   img.paste(b, (0, 0))
   img.paste(a, (int(x * 0.5), 0))
-  img.save(output_file_name)
+  img.save(output_filename)
  
 ##сохраняем новое изображение
   #img = Image.fromarray((img * 255).astype(np.uint8))
@@ -95,7 +95,7 @@ def draw(filename,cho):
   b = img.crop((int(y * 0.5), 0, x, y))
   img.paste(b, (0, 0))
   img.paste(a, (int(x * 0.5), 0))
-  img.save(output_file_name)
+  img.save(output_filename)
   #img.save(output_file_name)
 ##сохраняем новое изображение
  # img = Image.fromarray((img * 255).astype(np.uint8))
