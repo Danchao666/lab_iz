@@ -33,7 +33,7 @@ class Chose(FlaskForm):
  # и указывает пользователю ввести данные если они не введены
  # или неверны
  CHOICES = [('вертикали','вертикали')]#,('вертикали','вертикали')]
- chose = SelectField("Изменить картинку по",choices =CHOICES) 
+ CHOSE = SelectField("Изменить картинку по",choices =CHOICES) 
  # поле загрузки файла
  # здесь валидатор укажет ввести правильные файлы
  upload = FileField('Load image', validators=[
@@ -75,6 +75,7 @@ def draw(filename,size):
 
 
 ##рисуем рамки
+chose=CHOSE
 if chose=='вертикали':
  size=30
   height = 224
@@ -84,7 +85,7 @@ if chose=='вертикали':
   img[:size,:,1] = 0
   img[:,0:size,1] = 0
   img[:,224-size:,1] = 0
-   img[224-size:,:,1] = 0
+  img[224-size:,:,1] = 0
 ##сохраняем новое изображение
  img = Image.fromarray((img * 255).astype(np.uint8))
  print(img)
