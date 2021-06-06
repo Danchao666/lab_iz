@@ -90,7 +90,7 @@ def draw(filename,cho):
   #new_path = "./static/new.png"
   #print(img)
   #img.save(new_path)
- elif cho==2:
+ else:
   img.rotate(90)
   a = img.crop((0, 0, int(y * 0.5), x))
   b = img.crop((int(y * 0.5), 0, x, y))
