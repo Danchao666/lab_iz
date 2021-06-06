@@ -4,7 +4,7 @@ app = Flask(__name__)
 #декоратор для вывода страницы по умолчанию
 @app.route("/")
 def hello():
- return " <html><head></head> <body> Im son of Odin </body></html>"
+ return " <html><head></head> <body> Hello World! </body></html>"
 
 from flask import render_template
 #наша новая функция сайта
@@ -32,7 +32,7 @@ class NetForm(FlaskForm):
  # валидатор проверяет введение данных после нажатия кнопки submit
  # и указывает пользователю ввести данные если они не введены
  # или неверны
- chose = StringField('1-изменить по горизонтали,2-по вертикали', validators = [DataRequired()])
+ size = StringField('size', validators = [DataRequired()])
  # поле загрузки файла
  # здесь валидатор укажет ввести правильные файлы
  upload = FileField('Load image', validators=[
@@ -54,7 +54,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 ## функция для оброботки изображения 
-def draw(filename,cho):
+def draw(filename,size):
  ##открываем изображение 
  print(filename)
  img= Image.open(filename)
@@ -73,8 +73,8 @@ def draw(filename,cho):
  plt.close()
 
 
-##рисуем рамкi
- size=int(cho)
+##рисуем рамки
+ size=int(size)
  height = 224
  width = 224
  img= np.array(img.resize((height,width)))/255.0
@@ -91,6 +91,7 @@ def draw(filename,cho):
  print(img)
  img.save(new_path)
  return new_path, gr_path
+
 
 # метод обработки запроса GET и POST от клиента
 @app.route("/net",methods=['GET', 'POST'])
