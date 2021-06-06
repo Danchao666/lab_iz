@@ -58,7 +58,6 @@ def draw(filename,cho):
  ##открываем изображение 
  print(filename)
  img= Image.open(filename)
- pixels = img.load()
  x, y = img.size
  
 ##делаем график
@@ -81,6 +80,7 @@ def draw(filename,cho):
   b = img.crop((int(y * 0.5), 0, x, y))
   img.paste(b, (0, 0))
   img.paste(a, (int(x * 0.5), 0))
+  output_filename = img
   img.save(output_filename)
  
 ##сохраняем новое изображение
@@ -95,6 +95,7 @@ def draw(filename,cho):
   b = img.crop((int(y * 0.5), 0, x, y))
   img.paste(b, (0, 0))
   img.paste(a, (int(x * 0.5), 0))
+  output_filename = img
   img.save(output_filename)
   #img.save(output_file_name)
 ##сохраняем новое изображение
@@ -121,10 +122,10 @@ def net():
  if form.validate_on_submit():
   # файлы с изображениями читаются из каталога static
   filename = os.path.join('./static', secure_filename(form.upload.data.filename))
-  sz=form.cho.data
+  ch=form.cho.data
  
   form.upload.data.save(filename)
-  newfilename, grname = draw(filename,sz)
+  newfilename, grname = draw(filename,ch)
  # передаем форму в шаблон, так же передаем имя файла и результат работы нейронной
  # сети если был нажат сабмит, либо передадим falsy значения
  
