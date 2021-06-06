@@ -1,3 +1,3 @@
-from some_app import app
+from iz import app
 if __name__ == "__main__":
   app.run()
