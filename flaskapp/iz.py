@@ -75,7 +75,7 @@ def draw(filename,cho):
 
 ##рисуем рамки
  size=30
- cho=int(size)
+ cho=int(cho)
  if cho==1: 
   height = 224
   width = 224
