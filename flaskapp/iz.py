@@ -74,23 +74,33 @@ def draw(filename,size):
 
 
 ##рисуем рамки
- size=int(size)
- height = 224
- width = 224
- img= np.array(img.resize((height,width)))/255.0
- print(size)
- img[:size,:,1] = 0
- img[:,0:size,1] = 0
- img[:,224-size:,1] = 0
- img[224-size:,:,1] = 0
+if chose=='вертикали':
+ def twist_image(input_file_name)
+  im =Image.open(input_file_name)
+  x, y = im.size
+  a = im.crop((0, 0, int(y * 0.5), x))
+  b = im.crop((int(y * 0.5), 0, x, y))
+  im.paste(b, (0, 0))
+  im.paste(a, (int(x * 0.5), 0))
+  output_file_name = input_file_name
+  im.save(output_file_name)
+  return output_file_name
+ @app.route("/iz", methods=['GET', 'POST'])
+ def iz():
+  form = NetForm()
+  ilename = None
+  if form.validate_on_submit():
+   filename = os.path.join('./static', 'photo.png')
+   form.upload.data.save(filename)filename = twist_image(filename)
+  return render_template('iz.html', form=form, image_name=filename) 
 ##сохраняем новое изображение
- img = Image.fromarray((img * 255).astype(np.uint8))
- print(img)
+# img = Image.fromarray((img * 255).astype(np.uint8))
+ #print(img)
  #img = Image.fromarray(img)
- new_path = "./static/new.png"
- print(img)
- img.save(new_path)
- return new_path, gr_path
+ #new_path = "./static/new.png"
+ #print(img)
+ #img.save(new_path)
+ #return new_path, gr_path
 
 
 # метод обработки запроса GET и POST от клиента
