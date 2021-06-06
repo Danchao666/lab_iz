@@ -54,7 +54,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 ## функция для оброботки изображения 
-def draw(filename,size):
+def draw(filename,cho):
  ##открываем изображение 
  print(filename)
  img= Image.open(filename)
@@ -75,17 +75,17 @@ def draw(filename,size):
 
 ##рисуем рамки
 #from .forms import CHOICES
-chose=int(cho)
-if chose==1:
- size=30
- height = 224
- width = 224
- img= np.array(img.resize((height,width)))/255.0
- print(size)
- img[:size,:,1] = 0
- img[:,0:size,1] = 0
- img[:,224-size:,1] = 0
- img[224-size:,:,1] = 0
+ chose=int(cho)
+ if chose==1:
+  size=30
+  height = 224
+  width = 224
+  img= np.array(img.resize((height,width)))/255.0
+  print(size)
+  img[:size,:,1] = 0
+  img[:,0:size,1] = 0
+  img[:,224-size:,1] = 0
+  img[224-size:,:,1] = 0
 ##сохраняем новое изображение
  img = Image.fromarray((img * 255).astype(np.uint8))
  print(img)
