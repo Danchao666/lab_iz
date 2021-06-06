@@ -76,7 +76,7 @@ def draw(filename,cho):
 ##рисуем рамки
  size=30
  cho=int(size)
- if cho=1: 
+ if cho==1: 
   height = 224
   width = 224
   img= np.array(img.resize((height,width)))/255.0
