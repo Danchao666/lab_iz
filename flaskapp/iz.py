@@ -5,10 +5,9 @@ app = Flask(__name__)
 @app.route("/")
 def hello():
  return " <html><head></head> <body> Hello World! </body></html>"
- 
- from flask import render_template
-#наша новая функция сайта
 
+from flask import render_template
+#наша новая функция сайта
 
 # модули работы с формами и полями в формах
 from flask_wtf import FlaskForm,RecaptchaField
@@ -48,8 +47,6 @@ class NetForm(FlaskForm):
 # для устранения в имени символов типа / и т.д.
 from werkzeug.utils import secure_filename
 import os
-
-
 
 import numpy as np
 from PIL import Image
